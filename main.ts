@@ -1,10 +1,9 @@
+let s_prawy = 0
+let s_lewy = 0
 music.playTone(262, music.beat(BeatFraction.Eighth))
 let SILA = 50
-let MALA_SILA = Math.idiv(SILA, 2)
-let s_lewy = 0
-let s_prawy = 0
-basic.forever(function on_forever() {
-    
+let MALA_SILA = SILA / 2
+basic.forever(function () {
     s_lewy = maqueen.readPatrol(maqueen.Patrol.PatrolLeft)
     s_prawy = maqueen.readPatrol(maqueen.Patrol.PatrolRight)
     if (s_lewy == 0 && s_prawy == 0) {
@@ -26,5 +25,4 @@ basic.forever(function on_forever() {
         maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
         maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
     }
-    
 })
