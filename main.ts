@@ -1,8 +1,16 @@
+input.onButtonPressed(Button.A, function () {
+    strip.showColor(neopixel.colors(NeoPixelColors.White))
+})
+input.onButtonPressed(Button.B, function () {
+    strip.showColor(neopixel.colors(NeoPixelColors.Black))
+})
 let s_prawy = 0
 let s_lewy = 0
+let strip: neopixel.Strip = null
 music.playTone(262, music.beat(BeatFraction.Eighth))
 let SILA = 50
 let MALA_SILA = SILA / 2
+strip = neopixel.create(DigitalPin.P15, 4, NeoPixelMode.RGB)
 basic.forever(function () {
     s_lewy = maqueen.readPatrol(maqueen.Patrol.PatrolLeft)
     s_prawy = maqueen.readPatrol(maqueen.Patrol.PatrolRight)
